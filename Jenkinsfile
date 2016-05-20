@@ -9,7 +9,7 @@ eng-ops''']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:urbana
     sh "${MAV}/bin/mvn clean"
 
     stage "Notify"
-    slackSend channel: '#test-seth', color: 'good', message: 'slack test send'
+    slackSend channel: '#test-seth', color: 'good', message: "Job '${env.BUILD_TAG}' built on '${env.NODE_NAME}'"
 
   }
 }
