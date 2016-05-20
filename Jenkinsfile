@@ -13,7 +13,7 @@ eng-ops''']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:urbana
 
   }
 
-freeStyleJob('test-job') {
+job('test-job') {
   properties{
     promotions {
       promotion {
