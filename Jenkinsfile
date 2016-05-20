@@ -12,4 +12,21 @@ eng-ops''']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:urbana
     slackSend channel: '#test-seth', color: 'good', message: "Job '${env.BUILD_TAG}' built on '${env.NODE_NAME}'"
 
   }
+
+freeStyleJob('test-job') {
+  properties{
+    promotions {
+      promotion {
+        name('Development')
+        conditions {
+          manual('testuser')
+        }
+        actions {
+          shell('echo hello;')
+        }
+      }
+    }
+  }
+}
+
 }
