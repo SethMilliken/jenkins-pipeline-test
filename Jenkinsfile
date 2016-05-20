@@ -13,10 +13,6 @@ eng-ops''']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:urbana
 
   }
 
-}
-
-freeStyleJob('test-seth-promo') {
-  properties{
     promotions {
       promotion {
         name('Development')
@@ -28,6 +24,6 @@ freeStyleJob('test-seth-promo') {
         }
       }
     }
-  }
+
 }
 
