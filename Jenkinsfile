@@ -2,7 +2,7 @@ node('centos6') {
   //wrap(<object of type hudson.plugins.ansicolor.AnsiColorBuildWrapper>) {
     stage "Checkout"
     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'WipeWorkspace'], [$class: 'UserExclusion', excludedUsers: '''uadeploy
-eng-ops''']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/urbanairship/pass-be/']]])
+eng-ops''']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:urbanairship/pass-be.git']]])
 
     stage "Build"
     def MAV = tool name: 'ua maven', type: 'hudson.tasks.Maven$MavenInstallation'
