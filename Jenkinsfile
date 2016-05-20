@@ -1,5 +1,5 @@
 node('centos6') {
-  //wrap(<object of type hudson.plugins.ansicolor.AnsiColorBuildWrapper>) {
+  wrap([$class: 'AnsiColorBuildWrapper', colorMapName: 'xterm']) {
     stage "Checkout"
     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'WipeWorkspace'], [$class: 'UserExclusion', excludedUsers: '''uadeploy
 eng-ops''']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:urbanairship/pass-be.git']]])
@@ -10,6 +10,6 @@ eng-ops''']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:urbana
 
     stage "Notify"
     slackSend channel: '#test-seth', color: 'good', message: 'slack test send'
-  //}
 
+  }
 }
