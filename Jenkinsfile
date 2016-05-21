@@ -1,5 +1,5 @@
 node('centos6') {
-  wrap([$class: 'AnsiColorBuildWrapper', colorMapName: 'xterm']) {
+  wrap([$class: 'AnsiColorBuildWrapper', colorMapName: 'XTerm']) {
     stage "Checkout"
     checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'WipeWorkspace'], [$class: 'UserExclusion', excludedUsers: '''uadeploy
 eng-ops''']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:urbanairship/pass-be.git']]])
