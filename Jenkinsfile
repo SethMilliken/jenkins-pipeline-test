@@ -13,17 +13,9 @@ eng-ops''']], submoduleCfg: [], userRemoteConfigs: [[url: 'git@github.com:urbana
 
   }
 
-    promotions {
-      promotion {
-        name('Development')
-        conditions {
-          manual('testuser')
-        }
-        actions {
-          shell('echo hello;')
-        }
-      }
-    }
+
+stage "promote"
+   input message: 'Promote Build', ok: 'Promote to Prod', parameters: [[$class: 'PromotedBuildParameterDefinition', description: '', jobName: 'test-seth-pipeline', name: 'PROMOT', process: '']]
 
 }
 
